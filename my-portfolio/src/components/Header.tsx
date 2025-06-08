@@ -19,15 +19,15 @@ export default function Header({ isDarkMode, toggleDarkMode }: { isDarkMode: boo
           onClick={toggleDarkMode}
           variant="outline"
           size="sm"
-          className={`${
+          className={`justify-center ${
             isDarkMode
-              ? "bg-green-300/10 border-green-700 text-green-300 hover:bg-green-400/30"
-              : "bg-green-50 border-green-300 text-green-700 hover:bg-green-100"
+              ? "border-green-700 text-green-300 hover:bg-green-500/10"
+              : "border-green-300 text-green-700 hover:bg-green-100/50"
           }`}
         >
           {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
         </Button>
+      </div>
     </div>
-  </div>
   )
 }

@@ -1,34 +1,45 @@
 import type { ButtonHTMLAttributes } from "react";
-import { cn } from "@/lib/utils"; 
+import { cn } from "@/lib/utils";
+import { tv } from "tailwind-variants";
 
 type CustomButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: "default" | "outline";
-  size?: "sm" | "md" | "lg";
+  size?: "default" | "sm" | "icon" | "lg";
 };
+
+const button = tv({
+  base: "inline-flex items-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+
+  variants: {
+    variant: {
+      default: "bg-primary text-primary-foreground hover:bg-primary/90",
+      outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+    },
+    size: {
+      default: "h-10 px-4 py-2",
+      sm: "h-9 rounded-md px-3",
+      lg: "h-11 rounded-md px-8",
+      icon: "h-10 w-10",
+    },
+  },
+
+  defaultVariants: {
+    variant: "default",
+    size: "default",
+  },
+});
 
 export default function CustomButton({
   children,
   className,
-  variant = "default",
-  size = "md",
+  variant,
+  size,
   ...props
 }: CustomButtonProps) {
-  const baseClasses = "rounded-xl font-medium transition-colors duration-200";
-  const variants = {
-    default: "bg-primary text-primary-foreground hover:bg-primary/90",
-    outline:
-        "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-  };
-  const sizes = {
-    sm: "text-sm px-3 py-1.5",
-    md: "text-base px-4 py-2",
-    lg: "text-lg px-5 py-3",
-  };
-
   return (
     <button
       {...props}
-      className={cn(baseClasses, variants[variant], sizes[size], className)}
+      className={cn(button({ variant, size }), className)}
     >
       {children}
     </button>
