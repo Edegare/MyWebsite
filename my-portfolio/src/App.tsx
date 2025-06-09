@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import Header from '@components/Header'
 import Menu from '@/components/Menu'
+import Avatar from './components/Avatar'
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(true)
@@ -18,12 +19,16 @@ function App() {
       >
         <div className="container mx-auto px-4 py-8">
           <div className="space-y-8">
-            {/* Top Section - Menu Options and Edgar Character side by side */}
+            {/* Top Section - Menu Options and Character side by side */}
             <div className="grid lg:grid-cols-2 gap-8">
               {/* Left Side - Menu Options */}
               <div className="space-y-6">
                 <Header isDarkMode={isDarkMode} toggleDarkMode={() => setIsDarkMode(!isDarkMode)} />
                 <Menu isDarkMode={isDarkMode} currentSection={currentSection} setCurrentSection={setCurrentSection}/>
+              </div>
+              {/* Right side - character*/}
+              <div>
+                <Avatar isDarkMode={isDarkMode} currentSection={currentSection}/>
               </div>
             </div>
           </div>
