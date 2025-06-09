@@ -8,21 +8,21 @@ export default function Header({ isDarkMode, toggleDarkMode }: { isDarkMode: boo
         <div>
           <h1
             className={`text-4xl font-bold mb-2 bg-gradient-to-r ${
-              isDarkMode ? "from-green-400 to-emerald-200" : "from-green-600 to-emerald-700"
+              isDarkMode ? "from-text to-textSec" : "from-text-darkt to-textSec-dark"
             } bg-clip-text text-transparent`}
           >
             Edgar's Digital Realm
           </h1>
-          <p className={isDarkMode ? "text-green-300" : "text-green-700"}>Choose your adventure!</p>
+          <p className={isDarkMode ? "text-textSec" : "text-textSec-dark"}>Choose your adventure!</p>
         </div>
         <Button
           onClick={toggleDarkMode}
           variant="outline"
-          size="sm"
+          size="icon"
           className={`justify-center ${
             isDarkMode
-              ? "border-green-700 text-green-300 hover:bg-green-500/10"
-              : "border-green-300 text-green-700 hover:bg-green-100/50"
+              ? "border-border-dark text-text hover:bg-green-500/10"
+              : "border-border text-text-dark hover:bg-green-100/50"
           }`}
         >
           {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}

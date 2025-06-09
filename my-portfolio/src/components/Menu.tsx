@@ -30,14 +30,15 @@ export default function Menu({ isDarkMode, currentSection, setCurrentSection }: 
                         key={option.id}
                         onClick={() => handleMenuClick(option)}
                         variant={isActive ? "default" : "outline"}
+                        size = "sm"
                         className={`w-full justify-start text-left h-auto p-4 transition-all ${
                         isActive
                             ? isDarkMode
-                            ? "bg-green-600 hover:bg-green-500 text-black border-green-500"
-                            : "bg-green-600 hover:bg-green-700 text-white border-green-600"
+                            ? "bg-primary hover:bg-green-500 text-black border-border-dark"
+                            : "bg-primary hover:bg-green-700 text-white border-border"
                             : isDarkMode
-                            ? "hover:bg-green-500/10 border-green-500/30 text-green-400"
-                            : "hover:bg-green-100/50 border-green-300 text-green-800"
+                            ? "hover:bg-green-500/10 border-border-dark text-text"
+                            : "hover:bg-green-100/50 border-border text-text-dark"
                         }`}
                     >
                         <Icon className="mr-3 h-5 w-5" />

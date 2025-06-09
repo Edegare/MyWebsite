@@ -12,8 +12,8 @@ function App() {
       <div
         className={`min-h-screen transition-all duration-500 ${
           isDarkMode
-            ? "bg-gradient-to-br from-gray-900 via-black to-gray-900 text-green-400"
-            : "bg-gradient-to-br from-gray-100 via-white to-gray-100 text-green-900"
+            ? "bg-gradient-to-br from-background-dark via-black to-background-dark"
+            : "bg-gradient-to-br from-background via-white to-background"
         }`}
       >
         <div className="container mx-auto px-4 py-8">
