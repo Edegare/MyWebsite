@@ -21,8 +21,8 @@ export default function Header({ isDarkMode, toggleDarkMode }: { isDarkMode: boo
           size="icon"
           className={`justify-center ${
             isDarkMode
-              ? "border-border-dark text-text hover:bg-green-500/10"
-              : "border-border text-text-darkt hover:bg-green-100/50"
+              ? "bg-black/20 border-border-dark text-text hover:bg-green-500/10"
+              : "bg-white/20 border-border text-text-darkt hover:bg-green-100/50"
           }`}
         >
           {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}

@@ -75,7 +75,7 @@ export default function Avatar({isDarkMode, currentSection}: AvaProps) {
                 {/* dialog box */}
                 <div
                     className={`grid grid-cols-[2rem_auto] gap-x-2 shadow-md transition-all ${
-                        isDarkMode ? "text-textSec border shadow-md shadow-border-dark border-border-dark" : "text-textSec-dark border shadow-border border-border"
+                        isDarkMode ? "bg-black/20 text-textSec border shadow-md shadow-border-dark border-border-dark" : "bg-white/20 text-textSec-dark border shadow-border border-border"
                     } max-w-md p-4 rounded-xl space-y-1`}
                 >
                     {/* avatar */}
