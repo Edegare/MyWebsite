@@ -9,10 +9,10 @@ type MenuProps = {
 
 export default function Menu({ isDarkMode, currentSection, setCurrentSection }: MenuProps) {
     const menuOptions = [
-        { id: "about", label: "Learn about Edgar!", icon: User, dialogue: "about" },
-        { id: "projects", label: "Check Edgar's Project Inventory", icon: Briefcase, dialogue: "projects" },
-        { id: "skills", label: "View Edgar's Abilities", icon: Award, dialogue: "skills" },
-        { id: "contact", label: "Send Edgar a Message", icon: Mail, dialogue: "contact" },
+        { id: "about", label: "Learn about Edgar!", icon: User},
+        { id: "projects", label: "Check Edgar's Project Inventory", icon: Briefcase},
+        { id: "skills", label: "View Edgar's Abilities", icon: Award},
+        { id: "contact", label: "Send Edgar a Message", icon: Mail },
     ]
 
     function handleMenuClick (option: { id: string }) {
