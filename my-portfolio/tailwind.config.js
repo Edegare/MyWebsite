@@ -34,6 +34,11 @@ export default {
           DEFAULT: green[300],
           dark: green[700],
         },
+        hover: {
+          lighter: green[500],                
+          darkerSel: green[700],                    
+          darkerNor: green[100],                
+        },
       },
     },
   },

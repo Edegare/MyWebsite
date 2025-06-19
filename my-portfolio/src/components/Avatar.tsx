@@ -10,7 +10,7 @@ type AvaProps = {
 
 const dialogues = {
     welcome: "Hi, I'm Edgar! Welcome to my digital realm! What adventure shall we embark on today?",
-    about: "Ah, curious about my backstory? I'm a passionate developer who loves turning ideas into reality through code!",
+    about: "Ah, curious about my backstory? Let me show you what makes me... me.",
     projects: "Let me show you my treasure chest of projects! Each one is a quest I've completed.",
     skills: "These are my special abilities I've mastered on my coding journey!",
     contact: "Ready to team up? Let's connect and create something amazing together!",
@@ -76,7 +76,7 @@ export default function Avatar({isDarkMode, currentSection}: AvaProps) {
                 <div
                     className={`grid grid-cols-[2rem_auto] gap-x-2 shadow-md transition-all ${
                         isDarkMode ? "bg-black/20 text-textSec border shadow-md shadow-border-dark border-border-dark" : "bg-white/20 text-textSec-dark border shadow-border border-border"
-                    } max-w-md p-4 rounded-xl space-y-1`}
+                    } max-w-md p-4 rounded-xl space-y-1 min-h-[130px]`}
                 >
                     {/* avatar */}
                     <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm ${

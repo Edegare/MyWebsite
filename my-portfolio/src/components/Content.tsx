@@ -1,3 +1,4 @@
+import { motion, AnimatePresence } from "framer-motion";
 
 const projects = [
     {
@@ -30,7 +31,18 @@ const projects = [
     },
 ]
 
-const about = "";
+const about = "I'm a passionate software engineer who loves creating experiences that feel magical. With a strong foundation in computer science and a knack for problem-solving, I thrive on turning complex challenges into elegant solutions. When I'm not coding, you can find me exploring new technologies, doing some sports, or playing video games. You can also check my resume for more details about my journey and skills:";
+
+const resumes = [
+    {
+        name: "English Resume",
+        link: "/CV/Edgar_CV_EN.pdf", 
+    },
+    {
+        name: "Portuguese Resume",
+        link: "/CV/Edgar_CV_PT.pdf",
+    }
+]
 
 const skills = [
     {name: "Java", level: 75, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" },
@@ -54,10 +66,100 @@ const contact = {
     linkedin: "https://www.linkedin.com/in/edgar-ferreira-1aa033329/",
 }
 
-export default function Content({ isDarkMode, currentSection }: { isDarkMode: boolean; currentSection: string }) {
+function sectionContent(section: string, isDarkMode: boolean) {
+    switch (section) {
+        case "about":
+            return (
+                <div className="space-y-2">
+                    <h2 className={`text-xl font-semibold ${isDarkMode ? "text-text" : "text-text-darkt"}`}>
+                        About
+                    </h2>
+                    <p className={`${isDarkMode ? "text-textSec" : "text-text-dark"}`}>
+                        {about}
+                    </p>
+                    <div className="flex flex-wrap justify-center gap-5 pt-2">
+                        {resumes.map((resume) => (
+                            <a
+                            key={resume.name}
+                            href={resume.link}
+                            download
+                            className={`inline-block px-4 py-2 rounded-xl transition-all ${
+                                isDarkMode
+                                ? "bg-primary hover:bg-hover-lighter text-black border-border-dark"
+                                : "bg-primary hover:bg-hover-darkerSel text-white border-border"
+                            }`}
+                            >
+                            {resume.name}
+                            </a>
+                        ))}
+                        </div>
+                </div>
+            );
+        case "projects":
+            return (
+                <div className="space-y-2">
+                    <h2 className={`text-xl font-semibold ${isDarkMode ? "text-text" : "text-text-darkt"}`}>
+                        Projects
+                    </h2>
+                    <p className={`${isDarkMode ? "text-textSec" : "text-text-dark"}`}>
+                        
+                    </p>
+                </div>
+            );
+        case "skills":
+            return (
+                <div className="space-y-2">
+                    <h2 className={`text-xl font-semibold ${isDarkMode ? "text-text" : "text-text-darkt"}`}>
+                        Skills
+                    </h2>
+                    <p className={`${isDarkMode ? "text-textSec" : "text-text-dark"}`}>
+                        
+                    </p>
+                </div>
+            );
+        case "contact":
+            return (
+                <div className="space-y-2">
+                    <h2 className={`text-xl font-semibold ${isDarkMode ? "text-text" : "text-text-darkt"}`}>
+                        Contacts
+                    </h2>
+                    <p className={`${isDarkMode ? "text-textSec" : "text-text-dark"}`}>
+                        
+                    </p>
+                </div>
+            );
+        default:
+            return null;
+    }
+}
+
+type ContentProps = {
+    isDarkMode: boolean;
+    currentSection: string;
+};
+
+export default function Content({isDarkMode, currentSection}: ContentProps) {
 
     return (
         <>
+            <AnimatePresence mode="wait">
+                {currentSection !== "home" && (
+                    <motion.div
+                    key={currentSection}
+                    initial={{opacity: 0, y: 20 }}
+                    animate={{opacity: 1, y: 0}}
+                    exit={{opacity: 0, y: -10}}
+                    transition={{duration: 0.3, ease: "easeOut" }}
+                    className={`p-4 rounded-xl space-y-1 ${
+                        isDarkMode
+                        ? "bg-black/20 text-textSec border border-border-dark"
+                        : "bg-white/20 text-textSec-dark border border-border"
+                    }`}
+                    >
+                    {sectionContent(currentSection, isDarkMode)}
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </>
     )
 }

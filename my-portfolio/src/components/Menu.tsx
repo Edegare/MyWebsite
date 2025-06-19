@@ -34,11 +34,11 @@ export default function Menu({ isDarkMode, currentSection, setCurrentSection }: 
                         className={`w-full justify-start text-left h-auto p-4 transition-all ${
                         isActive
                             ? isDarkMode
-                            ? "bg-primary hover:bg-green-500 text-black border-border-dark"
-                            : "bg-primary hover:bg-green-700 text-white border-border"
+                            ? "bg-primary hover:bg-hover-lighter text-black border-border-dark"
+                            : "bg-primary hover:bg-hover-darkerSel text-white border-border"
                             : isDarkMode
-                            ? "bg-black/20 hover:bg-green-500/10 border-border-dark text-text"
-                            : "bg-white/20 hover:bg-green-100/50 border-border text-text-darkt"
+                            ? "bg-black/20 hover:bg-hover-lighter/10 border-border-dark text-text"
+                            : "bg-white/20 hover:bg-hover-darkerNor/50 border-border text-text-darkt"
                         }`}
                     >
                         <Icon className="mr-3 h-5 w-5" />
