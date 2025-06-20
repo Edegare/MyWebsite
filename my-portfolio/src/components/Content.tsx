@@ -3,17 +3,17 @@ import { motion, AnimatePresence } from "framer-motion";
 const projects = [
     {
         name: "Pascal Compiler",
-        tech: ["Python","PLY", "EWVM"],
+        tech: ["Python", "EWVM"],
         rarity: "Mythical",
         link: "https://github.com/Edegare/Pascal-Compiler-PL",
-        description: "A modular Python compiler that translates standard Pascal code into EWVM machine code, featuring full lexical, syntactic, semantic analysis and an interactive AST visualizer.",
+        description: "A modular Python compiler that translates standard Pascal code into EWVM machine code, featuring lexical, syntactic, semantic analysis plus an interactive AST visualizer",
     },
     {
         name: "3D Engine",
         tech: ["C++", "OpenGL"],
         rarity: "Legendary",
         link: "https://github.com/Edegare/3DEngine-CG",
-        description: "A mini 3D engine based on a scene graph structure, that includes a geometry generator and supports hierarchical transformations, animations, VBOs, textures and lightning.",
+        description: "A mini 3D engine based on a scene graph structure, that includes a geometry generator and supports hierarchical transformations, animations, VBOs, textures and lightning",
     },
     {
         name: "Secure Vault",
@@ -98,21 +98,68 @@ function sectionContent(section: string, isDarkMode: boolean) {
         case "projects":
             return (
                 <div className="space-y-2">
-                    <h2 className={`text-xl font-semibold ${isDarkMode ? "text-text" : "text-text-darkt"}`}>
+                    <h2 className={`text-xl font-semibold transition-all ${isDarkMode ? "text-text" : "text-text-darkt"}`}>
                         Projects
                     </h2>
-                    <p className={`${isDarkMode ? "text-textSec" : "text-text-dark"}`}>
-                        
-                    </p>
+                    <div className="space-y-4">
+                        {projects.map((project) => (
+                        <a
+                            key={project.name}
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`block p-4 rounded-xl border  duration-300 hover:scale-[1.01] transition-all${
+                            isDarkMode
+                                ? "bg-black/40 text-text border-border-dark hover:bg-black/30"
+                                : "bg-white/40 text-text-darkt border-border hover:bg-white/40"
+                            }`}
+                        >
+                            {/* Title + Rarity */} {/* EXTRA - Rarity shimmer */}
+                            <div className="flex items-center justify-between flex-wrap gap-2">
+                                <h3 className="font-semibold">{project.name}</h3>
+                                <span
+                                    className={`text-sm px-2 py-1 rounded-xl transition-all ${
+                                    isDarkMode
+                                        ? "bg-primary text-black"
+                                        : "bg-primary text-white"
+                                    }`}
+                                >
+                                    {project.rarity}
+                                </span>
+                            </div>
+
+                            {/* Description */}
+                            <p className={`mt-2 text-sm transition-all ${isDarkMode ? "text-textSec" : "text-text-dark"}`}>
+                                {project.description}
+                            </p>
+
+                            {/* Tech tags */}
+                            <div className="flex flex-wrap gap-2 mt-2">
+                                {project.tech.map((tech) => (
+                                    <span
+                                    key={tech}
+                                    className={`inline-block px-3 py-1 text-sm rounded-xl transition-all ${
+                                        isDarkMode
+                                        ? "bg-primary text-black"
+                                        : "bg-primary text-white"
+                                    }`}
+                                    >
+                                    {tech}
+                                    </span>
+                                ))}
+                            </div>
+                        </a>
+                        ))}
+                    </div>
                 </div>
             );
         case "skills":
             return (
                 <div className="space-y-2">
-                    <h2 className={`text-xl font-semibold ${isDarkMode ? "text-text" : "text-text-darkt"}`}>
+                    <h2 className={`text-xl font-semibold transition-all ${isDarkMode ? "text-text" : "text-text-darkt"}`}>
                         Skills
                     </h2>
-                    <p className={`${isDarkMode ? "text-textSec" : "text-text-dark"}`}>
+                    <p className={`transition-all ${isDarkMode ? "text-textSec" : "text-text-dark"}`}>
                         
                     </p>
                 </div>
@@ -120,10 +167,10 @@ function sectionContent(section: string, isDarkMode: boolean) {
         case "contact":
             return (
                 <div className="space-y-2">
-                    <h2 className={`text-xl font-semibold ${isDarkMode ? "text-text" : "text-text-darkt"}`}>
+                    <h2 className={`text-xl font-semibold transition-all ${isDarkMode ? "text-text" : "text-text-darkt"}`}>
                         Contacts
                     </h2>
-                    <p className={`${isDarkMode ? "text-textSec" : "text-text-dark"}`}>
+                    <p className={`transition-all ${isDarkMode ? "text-textSec" : "text-text-dark"}`}>
                         
                     </p>
                 </div>

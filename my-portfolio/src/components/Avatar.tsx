@@ -56,7 +56,7 @@ export default function Avatar({isDarkMode, currentSection}: AvaProps) {
                             <img
                                 src={camisaLaranja}
                                 alt=""
-                                className={`w-52 h-52 object-cover rounded-full border-4 shadow-md ${
+                                className={`w-52 h-52 object-cover rounded-full border-4 shadow-md transition-all ${
                                     isDarkMode
                                     ? "border-black"
                                     : "border-white"
@@ -68,7 +68,7 @@ export default function Avatar({isDarkMode, currentSection}: AvaProps) {
                         )}
                     </div>
                     <div className="absolute -bottom-4 -left-4 animate-pulse">
-                        <Code className={`h-8 w-8 ${isDarkMode ? "text-text" : "text-textSec-dark"}`} />
+                        <Code className={`h-8 w-8 transition-all ${isDarkMode ? "text-text" : "text-textSec-dark"}`} />
                     </div>
                 </div>
 
@@ -79,14 +79,14 @@ export default function Avatar({isDarkMode, currentSection}: AvaProps) {
                     } max-w-md p-4 rounded-xl space-y-1 min-h-[130px]`}
                 >
                     {/* avatar */}
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm ${
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm transition-all ${
                         isDarkMode ? "bg-primary text-black" : "bg-primary-light text-white"
                     }`}>
                         E
                     </div>
 
                     {/* name */}
-                    <div className={`${isDarkMode ? "text-text" : "text-text-darkt"} font-semibold`}>
+                    <div className={`transition-all ${isDarkMode ? "text-text" : "text-text-darkt"} font-semibold`}>
                         Edgar
                     </div>
 
@@ -94,7 +94,7 @@ export default function Avatar({isDarkMode, currentSection}: AvaProps) {
                     <div></div>
 
                     {/* text */}
-                    <div className={`${isDarkMode ? "text-textSec" : "text-text-dark"}`}>
+                    <div className={`transition-all ${isDarkMode ? "text-textSec" : "text-text-dark"}`}>
                         {displayedText}
                         {isTyping && <span className="animate-pulse">|</span>}
                     </div>
