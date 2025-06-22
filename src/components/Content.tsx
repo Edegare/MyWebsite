@@ -153,7 +153,7 @@ function sectionContent(section: string, isDarkMode: boolean) {
                                 
 
                             {/* Tech tags */}
-                            <div className="flex flex-wrap gap-2 mt-2">
+                            <div translate="no" className="flex flex-wrap gap-2 mt-2">
                                 {project.tech.map((tech) => (
                                     <Badge
                                     key={tech}
@@ -198,7 +198,7 @@ function sectionContent(section: string, isDarkMode: boolean) {
                                         {/* Icon + Name */}
                                         <div className="flex gap-3">
                                             <img src={skill.icon} alt={skill.name} className="w-6 h-6" />
-                                            <h3 className={`${isDarkMode ? "text-textSec" : "text-textSec-dark"}`}>
+                                            <h3 translate="no" className={`${isDarkMode ? "text-textSec" : "text-textSec-dark"}`}>
                                                 {skill.name}
                                             </h3>
                                         </div>
