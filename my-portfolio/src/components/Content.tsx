@@ -1,5 +1,7 @@
-import { motion, AnimatePresence } from "framer-motion";
+import {motion, AnimatePresence} from "framer-motion";
 import Badge from "@components/ui/badge";
+import {Mail} from "lucide-react"
+import { JSX } from "react";
 
 const rarityStyles = {
   Mythical: "bg-pink-500",
@@ -68,11 +70,13 @@ const skills = [
 ]
 
 const gitrepo = "https://github.com/Edegare?tab=repositories"
-const contact = {
-    email: "mailto:edgarcferreira03@gmail.com",
-    github: "https://github.com/Edegare",
-    linkedin: "https://www.linkedin.com/in/edgar-ferreira-1aa033329/",
-}
+
+const contact: { name: string; link: string; icon: JSX.Element }[] = [
+  { name: "Gmail", link: "mailto:edgarcferreira03@gmail.com", icon: <Mail size={18} /> },
+  { name: "GitHub", link: "https://github.com/Edegare", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub" className="w-4 h-4" /> },
+  { name: "LinkedIn", link: "https://www.linkedin.com/in/edgar-ferreira-1aa033329/", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" alt="LinkedIn" className="w-4 h-4" /> },
+];
+
 
 function sectionContent(section: string, isDarkMode: boolean) {
     switch (section) {
@@ -220,13 +224,28 @@ function sectionContent(section: string, isDarkMode: boolean) {
 
         case "contact":
             return (
-                <div className="space-y-2">
+                <div className="space-y-4">
                     <h2 className={`text-xl font-semibold transition-all ${isDarkMode ? "text-text" : "text-text-dark"}`}>
                         Let's Connect!
                     </h2>
-                    <p className={`transition-all ${isDarkMode ? "text-textSec" : "text-text-dark"}`}>
-                        
-                    </p>
+                    <div className="flex flex-col items-center gap-3">
+                        {contact.map((cont) => (
+                        <a
+                            key={cont.name}
+                            href={cont.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`w-full inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl transition-all hover:scale-[1.01] border ${
+                            isDarkMode
+                                ? "bg-primary hover:bg-hover-lighter text-black border-border-dark"
+                                : "bg-primary hover:bg-hover-darkerSel text-white border-border"
+                            }`}
+                        >
+                            {cont.icon}
+                            <span>{cont.name}</span>
+                        </a>
+                        ))}
+                    </div>
                 </div>
             );
         default:
