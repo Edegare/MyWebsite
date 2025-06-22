@@ -8,6 +8,15 @@ export default {
   darkMode: "class",
   theme: {
     extend: {
+      keyframes: {
+        shimmer: {
+          '0%': { backgroundPosition: '0% 50%' },
+          '100%': { backgroundPosition: '100% 50%' },
+        },
+      },
+      animation: {
+        shimmer: 'shimmer 2s ease-in-out infinite',
+      },
       colors: {
         background: {
           DEFAULT: gray[100],

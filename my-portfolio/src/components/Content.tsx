@@ -1,4 +1,12 @@
 import { motion, AnimatePresence } from "framer-motion";
+import Badge from "@components/ui/badge";
+
+const rarityStyles = {
+  Mythical: "bg-pink-500",
+  Legendary: "bg-yellow-400",
+  Epic: "bg-purple-500",
+  Rare: "bg-sky-500",
+};
 
 const projects = [
     {
@@ -34,15 +42,15 @@ const projects = [
 const about = "I'm a passionate software engineer who loves creating experiences that feel magical. With a strong foundation in computer science and a knack for problem-solving, I thrive on turning complex challenges into elegant solutions. When I'm not coding, you can find me exploring new technologies, doing some sports, or playing video games. You can also check my resume for more details about my journey and skills:";
 
 const resumes = [
-    {
-        name: "English Resume",
-        link: "/CV/Edgar_CV_EN.pdf", 
-    },
-    {
-        name: "Portuguese Resume",
-        link: "/CV/Edgar_CV_PT.pdf",
-    }
-]
+  {
+    name: "🇬🇧 English Resume",
+    link: "/CV/Edgar_CV_EN.pdf",
+  },
+  {
+    name: "🇵🇹 Portuguese Resume",
+    link: "/CV/Edgar_CV_PT.pdf",
+  },
+];
 
 const skills = [
     {name: "Java", level: 75, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" },
@@ -114,18 +122,23 @@ function sectionContent(section: string, isDarkMode: boolean) {
                                 : "bg-white/40 text-text-darkt border-border hover:bg-white/40"
                             }`}
                         >
-                            {/* Title + Rarity */} {/* EXTRA - Rarity shimmer */}
+                            {/* Title + Rarity */}
                             <div className="flex items-center justify-between flex-wrap gap-2">
                                 <h3 className="font-semibold">{project.name}</h3>
-                                <span
-                                    className={`text-sm px-2 py-1 rounded-xl transition-all ${
+                                <Badge
+                                    className={`relative overflow-hidden
+                                        ${rarityStyles[project.rarity as keyof typeof rarityStyles] ?? "bg-gray-400"} ${
                                     isDarkMode
-                                        ? "bg-primary text-black"
-                                        : "bg-primary text-white"
+                                        ? "text-black"
+                                        : "text-white"
                                     }`}
-                                >
-                                    {project.rarity}
-                                </span>
+                                    >
+                                    <span className="relative z-10">{project.rarity}</span>
+                                    <span
+                                        className="absolute inset-0 z-0 bg-[linear-gradient(70deg,_rgba(255,255,255,0)_45%,_rgba(255,255,255,0.5)_50%,_rgba(255,255,255,0)_55%)]
+                                        bg-[length:250%_100%] animate-shimmer opacity-70"
+                                    />
+                                </Badge>
                             </div>
 
                             {/* Description */}
@@ -133,19 +146,18 @@ function sectionContent(section: string, isDarkMode: boolean) {
                                 {project.description}
                             </p>
 
+                                
+
                             {/* Tech tags */}
                             <div className="flex flex-wrap gap-2 mt-2">
                                 {project.tech.map((tech) => (
-                                    <span
-                                    key={tech}
-                                    className={`inline-block px-3 py-1 text-sm rounded-xl transition-all ${
-                                        isDarkMode
-                                        ? "bg-primary text-black"
-                                        : "bg-primary text-white"
+                                    <Badge
+                                    className={`${
+                                        isDarkMode ? "bg-primary text-black" : "bg-primary text-white"
                                     }`}
                                     >
                                     {tech}
-                                    </span>
+                                    </Badge>
                                 ))}
                             </div>
                         </a>
