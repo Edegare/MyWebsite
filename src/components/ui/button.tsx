@@ -8,7 +8,7 @@ type CustomButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 };
 
 const button = tv({
-  base: "inline-flex items-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors  [&_svg]:size-4 [&_svg]:shrink-0",
+  base: "inline-flex items-center gap-2 rounded-md text-sm font-medium transition-colors  [&_svg]:size-4 [&_svg]:shrink-0",
 
   variants: {
     variant: {
