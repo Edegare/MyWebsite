@@ -156,6 +156,7 @@ function sectionContent(section: string, isDarkMode: boolean) {
                             <div className="flex flex-wrap gap-2 mt-2">
                                 {project.tech.map((tech) => (
                                     <Badge
+                                    key={tech}
                                     className={`${
                                         isDarkMode ? "bg-primary text-black" : "bg-primary text-white"
                                     }`}
@@ -261,7 +262,6 @@ type ContentProps = {
 export default function Content({isDarkMode, currentSection}: ContentProps) {
 
     return (
-        <>
             <AnimatePresence mode="wait">
                 {currentSection !== "home" && (
                     <motion.div
@@ -280,6 +280,5 @@ export default function Content({isDarkMode, currentSection}: ContentProps) {
                     </motion.div>
                 )}
             </AnimatePresence>
-        </>
     )
 }

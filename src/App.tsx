@@ -8,7 +8,6 @@ function App() {
   const [isDarkMode, setIsDarkMode] = useState(true)
   const [currentSection, setCurrentSection] = useState("home")
   return (
-    <>
       <div
         className={`min-h-screen transition-all duration-500 ${
           isDarkMode
@@ -37,7 +36,6 @@ function App() {
           </div>
         </div>
       </div>
-    </>
   )
 }
 

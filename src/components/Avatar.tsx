@@ -41,66 +41,65 @@ export default function Avatar({isDarkMode, currentSection}: AvaProps) {
     }, [fullText]);
 
     return (
-        <>
-            <div className="flex flex-col items-center justify-center space-y-6">
-                <div className="relative">
-                    {/*Avatar*/}
-                    <div
-                        className={`w-64 h-64 rounded-full flex items-center justify-center overflow-hidden transition-all ${
-                            isDarkMode
-                            ? " bg-gradient-to-br from-primary to-secondary"
-                            : "bg-gradient-to-br from-primary-light to-secondary-light"
-                        }`}
-                    >
-                        {imageLoaded ? (
-                            <img
-                                src={camisaLaranja}
-                                alt=""
-                                className={`w-52 h-52 object-cover rounded-full border-4 shadow-md transition-all ${
-                                    isDarkMode
-                                    ? "border-black"
-                                    : "border-white"
-                                }`}
-                                onError={() => setImageLoaded(false)}
-                            />
-                        ) : (
-                            <span className="text-8xl leading-none">🧙‍♂️</span>
-                        )}
-                    </div>
-                    <div className="absolute -bottom-4 -left-4 animate-pulse">
-                        <Code className={`h-8 w-8 transition-all ${isDarkMode ? "text-text" : "text-text-dark"}`} />
-                    </div>
-                </div>
-
-                {/* dialog box */}
+        <div className="flex flex-col items-center justify-center space-y-6">
+            <div className="relative">
+                {/*Avatar*/}
                 <div
-                    className={`grid grid-cols-[2rem_auto] gap-x-2 shadow-md transition-all ${
-                        isDarkMode ? "bg-black/20 text-textSec border shadow-md shadow-border-dark border-border-dark" : "bg-white/20 text-textSec-dark border shadow-border border-border"
-                    } max-w-md p-4 rounded-xl space-y-1 min-h-[130px]`}
+                    className={`w-64 h-64 rounded-full flex items-center justify-center overflow-hidden transition-all ${
+                        isDarkMode
+                        ? " bg-gradient-to-br from-primary to-secondary"
+                        : "bg-gradient-to-br from-primary-light to-secondary-light"
+                    }`}
                 >
-                    {/* avatar */}
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm transition-all ${
-                        isDarkMode ? "bg-primary text-black" : "bg-primary-light text-white"
-                    }`}>
-                        E
-                    </div>
+                    {imageLoaded ? (
+                        <img
+                            src={camisaLaranja}
+                            alt=""
+                            className={`w-52 h-52 object-cover rounded-full border-4 shadow-md transition-all ${
+                                isDarkMode
+                                ? "border-black"
+                                : "border-white"
+                            }`}
+                            onError={() => setImageLoaded(false)}
+                        />
+                    ) : (
+                        <span className="text-8xl leading-none">🧙‍♂️</span>
+                    )}
+                </div>
+                <div className="absolute -bottom-4 -left-4 animate-pulse">
+                    <Code className={`h-8 w-8 transition-all ${isDarkMode ? "text-text" : "text-text-dark"}`} />
+                </div>
+            </div>
 
-                    {/* name */}
-                    <div className={`transition-all ${isDarkMode ? "text-text" : "text-text-dark"} font-semibold`}>
-                        Edgar
-                    </div>
-
-                    {/* space to align grid */}
-                    <div></div>
-
-                    {/* text */}
-                    <div className={`transition-all ${isDarkMode ? "text-textSec" : "text-textSec-dark"}`}>
-                        {displayedText}
-                        {isTyping && <span className="animate-pulse">|</span>}
-                    </div>
+            {/* dialog box */}
+            <div
+                className={`grid grid-cols-[2rem_auto] gap-x-2 shadow-md transition-all ${
+                    isDarkMode ? "bg-black/20 text-textSec border shadow-md shadow-border-dark border-border-dark" : "bg-white/20 text-textSec-dark border shadow-border border-border"
+                } max-w-md p-4 rounded-xl space-y-1 min-h-[130px]`}
+            >
+                {/* avatar */}
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm transition-all ${
+                    isDarkMode ? "bg-primary text-black" : "bg-primary-light text-white"
+                }`}>
+                    E
                 </div>
 
+                {/* name */}
+                <div className={`transition-all ${isDarkMode ? "text-text" : "text-text-dark"} font-semibold`}>
+                    Edgar
+                </div>
+
+                {/* space to align grid */}
+                <div></div>
+
+                {/* text */}
+                <div className={`transition-all ${isDarkMode ? "text-textSec" : "text-textSec-dark"}`}>
+                    <span>{displayedText}</span>
+                    {isTyping && <span className="animate-pulse">|</span>}
+                </div>
             </div>
-        </>    
+
+        </div>
+   
     )
 }
