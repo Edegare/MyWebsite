@@ -12,7 +12,7 @@ const dialogues = {
     welcome: "Hi, I'm Edgar! Welcome to my digital realm! What adventure shall we embark on today?",
     about: "Ah, curious about my backstory? Let me show you what makes me... me.",
     projects: "Let me show you my treasure chest of projects! Each one is a quest I've completed.",
-    skills: "These are my special abilities I've mastered on my coding journey!",
+    skills: "These are some of the special abilities I've mastered on my coding journey!",
     contact: "Ready to team up? Let's connect and create something amazing together!",
 }
 
@@ -68,7 +68,7 @@ export default function Avatar({isDarkMode, currentSection}: AvaProps) {
                         )}
                     </div>
                     <div className="absolute -bottom-4 -left-4 animate-pulse">
-                        <Code className={`h-8 w-8 transition-all ${isDarkMode ? "text-text" : "text-textSec-dark"}`} />
+                        <Code className={`h-8 w-8 transition-all ${isDarkMode ? "text-text" : "text-text-dark"}`} />
                     </div>
                 </div>
 
@@ -86,7 +86,7 @@ export default function Avatar({isDarkMode, currentSection}: AvaProps) {
                     </div>
 
                     {/* name */}
-                    <div className={`transition-all ${isDarkMode ? "text-text" : "text-text-darkt"} font-semibold`}>
+                    <div className={`transition-all ${isDarkMode ? "text-text" : "text-text-dark"} font-semibold`}>
                         Edgar
                     </div>
 
@@ -94,7 +94,7 @@ export default function Avatar({isDarkMode, currentSection}: AvaProps) {
                     <div></div>
 
                     {/* text */}
-                    <div className={`transition-all ${isDarkMode ? "text-textSec" : "text-text-dark"}`}>
+                    <div className={`transition-all ${isDarkMode ? "text-textSec" : "text-textSec-dark"}`}>
                         {displayedText}
                         {isTyping && <span className="animate-pulse">|</span>}
                     </div>

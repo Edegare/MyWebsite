@@ -53,22 +53,22 @@ const resumes = [
 ];
 
 const skills = [
-    {name: "Java", level: 75, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" },
+    {name: "Java", level: 85, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" },
     {name: "C", level: 70, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" },
-    {name: "C++", level: 70, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" },
+    {name: "C++", level: 75, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" },
     {name: "C#", level: 70, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" },
-    {name: "Python", level: 65, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" },
+    {name: "Python", level: 80, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" },
     {name: "SQL", level: 70, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg" },
     {name: "GO", level: 75, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original-wordmark.svg" },
-    {name: "JavaScript", level: 85, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" },
-    {name: "React", level: 90, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
+    {name: "JavaScript", level: 70, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" },
+    {name: "React", level: 75, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
     {name: "CSS", level: 70, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" },
     {name: "HTML", level: 75, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" },
     {name: "Git", level: 80, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" },
 ]
 
+const gitrepo = "https://github.com/Edegare?tab=repositories"
 const contact = {
-    text: "Ready to start our next adventure together?",
     email: "mailto:edgarcferreira03@gmail.com",
     github: "https://github.com/Edegare",
     linkedin: "https://www.linkedin.com/in/edgar-ferreira-1aa033329/",
@@ -78,11 +78,11 @@ function sectionContent(section: string, isDarkMode: boolean) {
     switch (section) {
         case "about":
             return (
-                <div className="space-y-2">
-                    <h2 className={`text-xl font-semibold ${isDarkMode ? "text-text" : "text-text-darkt"}`}>
-                        About
+                <div className="space-y-4">
+                    <h2 className={`text-xl font-semibold ${isDarkMode ? "text-text" : "text-text-dark"}`}>
+                        About Edgar
                     </h2>
-                    <p className={`${isDarkMode ? "text-textSec" : "text-text-dark"}`}>
+                    <p className={`${isDarkMode ? "text-textSec" : "text-textSec-dark"}`}>
                         {about}
                     </p>
                     <div className="flex flex-wrap justify-center gap-5 pt-2">
@@ -105,9 +105,9 @@ function sectionContent(section: string, isDarkMode: boolean) {
             );
         case "projects":
             return (
-                <div className="space-y-2">
-                    <h2 className={`text-xl font-semibold transition-all ${isDarkMode ? "text-text" : "text-text-darkt"}`}>
-                        Projects
+                <div className="space-y-4">
+                    <h2 className={`text-xl font-semibold transition-all ${isDarkMode ? "text-text" : "text-text-dark"}`}>
+                        Inventory
                     </h2>
                     <div className="space-y-4">
                         {projects.map((project) => (
@@ -116,10 +116,10 @@ function sectionContent(section: string, isDarkMode: boolean) {
                             href={project.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`block p-4 rounded-xl border  duration-300 hover:scale-[1.01] transition-all${
+                            className={`block p-4 rounded-xl border duration-300 hover:scale-[1.01] transition-all ${
                             isDarkMode
-                                ? "bg-black/40 text-text border-border-dark hover:bg-black/30"
-                                : "bg-white/40 text-text-darkt border-border hover:bg-white/40"
+                                ? "bg-black/40 text-text border-border-dark"
+                                : "bg-white/40 text-text-dark border-border"
                             }`}
                         >
                             {/* Title + Rarity */}
@@ -142,7 +142,7 @@ function sectionContent(section: string, isDarkMode: boolean) {
                             </div>
 
                             {/* Description */}
-                            <p className={`mt-2 text-sm transition-all ${isDarkMode ? "text-textSec" : "text-text-dark"}`}>
+                            <p className={`mt-2 text-sm transition-all ${isDarkMode ? "text-textSec" : "text-textSec-dark"}`}>
                                 {project.description}
                             </p>
 
@@ -163,24 +163,66 @@ function sectionContent(section: string, isDarkMode: boolean) {
                         </a>
                         ))}
                     </div>
+                    {/* Centered Button */}
+                    <div className="flex justify-center">
+                        <a
+                        href={gitrepo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`px-5 py-2 rounded-xl transition-all hover:scale-[1.1] ${
+                            isDarkMode
+                            ? "bg-black/40 text-text border border-border-dark hover:bg-black/30"
+                            : "bg-white/40 text-text-dark border border-border hover:bg-white/60"
+                        }`}
+                        >
+                        More Projects
+                        </a>
+                    </div>
                 </div>
             );
         case "skills":
             return (
-                <div className="space-y-2">
-                    <h2 className={`text-xl font-semibold transition-all ${isDarkMode ? "text-text" : "text-text-darkt"}`}>
-                        Skills
+                <div className="space-y-4">
+                    <h2 className={`text-xl font-semibold transition-all ${isDarkMode ? "text-text" : "text-text-dark"}`}>
+                        Special Abilities
                     </h2>
-                    <p className={`transition-all ${isDarkMode ? "text-textSec" : "text-text-dark"}`}>
-                        
-                    </p>
+                    <div className={`grid md:grid-cols-2 gap-4`}>
+                        {skills.map((skill) => (
+                                <div key={skill.name} className="space-y-2">
+                                    <div className="flex items-center justify-between">
+                                        {/* Icon + Name */}
+                                        <div className="flex gap-3">
+                                            <img src={skill.icon} alt={skill.name} className="w-6 h-6" />
+                                            <h3 className={`${isDarkMode ? "text-textSec" : "text-textSec-dark"}`}>
+                                                {skill.name}
+                                            </h3>
+                                        </div>
+                                        {/* Level percentage */}
+                                        <span className={`text-sm ${isDarkMode ? "text-textSec" : "text-textSec-dark"}`}>{skill.level}%</span>
+                                    </div>
+
+                                    {/* Progress Bar */}
+                                    <div className={`w-full h-3 rounded-full overflow-hidden bg-gray-500/10`}>
+                                    <div
+                                        className={`h-full rounded-full transition-all bg-gradient-to-r ${
+                                            isDarkMode ? "from-primary-light to-secondary-light" : "from-primary to-secondary"
+                                        }`}
+                                        style={{width: `${skill.level}%`}}
+                                    />
+                                </div>
+                            </div>
+                            )
+                        )}
+                    </div>
+                    <p className={`text-center text-4xl ${isDarkMode ? "text-textSec" : "text-textSec-dark"}`}>...</p>
                 </div>
             );
+
         case "contact":
             return (
                 <div className="space-y-2">
-                    <h2 className={`text-xl font-semibold transition-all ${isDarkMode ? "text-text" : "text-text-darkt"}`}>
-                        Contacts
+                    <h2 className={`text-xl font-semibold transition-all ${isDarkMode ? "text-text" : "text-text-dark"}`}>
+                        Let's Connect!
                     </h2>
                     <p className={`transition-all ${isDarkMode ? "text-textSec" : "text-text-dark"}`}>
                         
@@ -211,8 +253,8 @@ export default function Content({isDarkMode, currentSection}: ContentProps) {
                     transition={{duration: 0.3, ease: "easeOut" }}
                     className={`p-4 rounded-xl space-y-1 ${
                         isDarkMode
-                        ? "bg-black/20 text-textSec border border-border-dark"
-                        : "bg-white/20 text-textSec-dark border border-border"
+                        ? "bg-black/20 border border-border-dark"
+                        : "bg-white/20 border border-border"
                     }`}
                     >
                     {sectionContent(currentSection, isDarkMode)}

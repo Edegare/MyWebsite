@@ -7,8 +7,8 @@ export default function Header({ isDarkMode, toggleDarkMode }: { isDarkMode: boo
       <div className="flex justify-between items-center mb-4">
         <div>
           <h1
-            className={`text-4xl font-bold mb-2 bg-gradient-to-r ${
-              isDarkMode ? "from-text to-textSec" : "from-text-darkt to-textSec-dark"
+            className={`text-4xl font-bold mb-2 transition-all bg-gradient-to-r ${
+              isDarkMode ? "from-text to-textSec" : "from-text-dark to-textSec-dark"
             } bg-clip-text text-transparent`}
           >
             Edgar's Digital Realm
@@ -21,8 +21,8 @@ export default function Header({ isDarkMode, toggleDarkMode }: { isDarkMode: boo
           size="icon"
           className={`justify-center ${
             isDarkMode
-              ? "bg-black/20 border-border-dark text-text hover:bg-green-500/10"
-              : "bg-white/20 border-border text-text-darkt hover:bg-green-100/50"
+              ? "bg-black/20 border-border-dark text-text hover:bg-hover-lighter/10"
+              : "bg-white/20 border-border text-text-dark hover:bg-hover-darkerNor/50"
           }`}
         >
           {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}

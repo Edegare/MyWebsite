@@ -9,10 +9,10 @@ type MenuProps = {
 
 export default function Menu({ isDarkMode, currentSection, setCurrentSection }: MenuProps) {
     const menuOptions = [
-        { id: "about", label: "Learn about Edgar!", icon: User},
+        { id: "about", label: "Learn about Edgar", icon: User},
         { id: "projects", label: "Check Edgar's Project Inventory", icon: Briefcase},
         { id: "skills", label: "View Edgar's Abilities", icon: Award},
-        { id: "contact", label: "Send Edgar a Message", icon: Mail },
+        { id: "contact", label: "Talk with Edgar", icon: Mail },
     ]
 
     function handleMenuClick (option: { id: string }) {
@@ -38,7 +38,7 @@ export default function Menu({ isDarkMode, currentSection, setCurrentSection }: 
                             : "bg-primary hover:bg-hover-darkerSel text-white border-border"
                             : isDarkMode
                             ? "bg-black/20 hover:bg-hover-lighter/10 border-border-dark text-text"
-                            : "bg-white/20 hover:bg-hover-darkerNor/50 border-border text-text-darkt"
+                            : "bg-white/20 hover:bg-hover-darkerNor/50 border-border text-text-dark"
                         }`}
                     >
                         <Icon className="mr-3 h-5 w-5" />

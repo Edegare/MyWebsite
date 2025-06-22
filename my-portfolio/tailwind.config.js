@@ -28,16 +28,15 @@ export default {
         },
         secondary: {
           DEFAULT: emerald[700],
-          light: emerald[500],
+          light: emerald[400],
         },
         text: {
           DEFAULT: green[400],
-          darkt: green[600],
-          dark: green[700],
+          dark: green[600],
         },
         textSec: {
-          DEFAULT: emerald[400],
-          dark: emerald[600],
+          DEFAULT: emerald[300],
+          dark: emerald[700],
         },
         border: {
           DEFAULT: green[300],
