@@ -6,8 +6,15 @@ import Avatar from '@/components/Avatar'
 import { Analytics } from "@vercel/analytics/react"
 
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState(true)
+  const [isDarkMode, setIsDarkMode] = useState(()=>{
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return true;
+    }
+    return false;
+  })
+  
   const [currentSection, setCurrentSection] = useState("home")
+  
   return (
       <div
         className={`min-h-screen transition-all duration-500 ${
