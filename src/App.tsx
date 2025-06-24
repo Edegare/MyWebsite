@@ -3,6 +3,7 @@ import Header from '@components/Header'
 import Content from '@components/Content'
 import Menu from '@/components/Menu'
 import Avatar from '@/components/Avatar'
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(true)
@@ -35,6 +36,7 @@ function App() {
             </div>
           </div>
         </div>
+        <Analytics />
       </div>
   )
 }
