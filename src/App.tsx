@@ -3,6 +3,7 @@ import Header from '@components/Header'
 import Content from '@components/Content'
 import Menu from '@/components/Menu'
 import Avatar from '@/components/Avatar'
+import Footer from '@/components/Footer'
 import { Analytics } from "@vercel/analytics/react"
 
 function App() {
@@ -17,13 +18,13 @@ function App() {
   
   return (
       <div
-        className={`min-h-screen transition-all duration-500 ${
+        className={`flex flex-col min-h-screen transition-all ${
           isDarkMode
             ? "bg-gradient-to-br from-background-dark via-black to-background-dark"
             : "bg-gradient-to-br from-background via-white to-background"
         }`}
       >
-        <div className="container mx-auto px-4 py-8">
+        <div className="flex-grow container mx-auto px-4 py-8">
           <div className="space-y-8">
             {/* Top Section - Menu Options and Character side by side */}
             <div className="grid lg:grid-cols-2 gap-8">
@@ -43,6 +44,9 @@ function App() {
             </div>
           </div>
         </div>
+        {/* footer */}
+        <Footer isDarkMode={isDarkMode} />
+        {/* Vercel analytics */}
         <Analytics />
       </div>
   )
