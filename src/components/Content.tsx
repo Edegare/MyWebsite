@@ -41,7 +41,7 @@ const projects = [
     },
 ]
 
-const about = "I'm a passionate software engineer who loves creating experiences that feel magical. With a strong foundation in computer science and a knack for problem-solving, I thrive on turning complex challenges into elegant solutions. When I'm not coding, you can find me exploring new technologies, doing some sports, or playing video games. You can also check my resume for more details about my journey and skills:";
+const about = "I'm a passionate software engineer who loves creating experiences that feel magical. With a strong foundation in computer science and a knack for problem-solving, I thrive on turning complex challenges into elegant solutions. When I'm not coding, you can find me exploring new technologies, doing some sports, playing video games or hanging out with family and friends. You can also check my resume for more details about my journey and skills:";
 
 const resumes = [
   {
